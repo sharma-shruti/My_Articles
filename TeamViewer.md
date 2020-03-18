@@ -21,10 +21,10 @@ You can tell if someone is connected to your computer via Teamviewer if the Team
 
 # Alternatives to TeamViewer
 Even though TeamViewer is a popular professional choice for remote management for external service providers it also has its limitations in terms of security and image quality, so many users are less than 100% satisfied. Below are some of the tools used for the same purpose
-- WebEx Meetings
-- Ammyy Admin.
-- Mikogo.
-- ThinVNC.
-- AnyDesk.
-- UltraVNC.
-- Chrome Remote Desktop.
+- [WebEx Meetings](https://www.webex.com/)
+- [Ammyy Admin](http://www.ammyy.com/en/)
+- [Mikogo](https://www.mikogo.com/)
+- [ThinVNC](https://www.tightvnc.com/)
+- [AnyDesk](https://anydesk.com/en)
+- [UltraVNC](https://www.uvnc.com/)
+- [Chrome Remote Desktop](https://remotedesktop.google.com/)
