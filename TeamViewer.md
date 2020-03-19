@@ -11,7 +11,9 @@ TeamViewer is compatible with multiple platforms, including Windows, macOS, Linu
 - **Conversation** - Instant messaging function includes chat group, web chat, offline messaging, chat history, fixed chat group, chat initiated by customers from service case, full support for Mobile devices and end-to-end encryption.
 
 # How does the TeamViewer work?
-After installing and signing in to the TeamViewer, you get an ID and password for your computer to allow remote access. Likewise, you can take control of someone else’s computer provided you have their ID and password. After entering the correct ID & password, the remote connection gets established.
+After installing and signing in to the TeamViewer, you get an ID and password for your computer to allow remote access (as shown below). Likewise, you can take control of someone else’s computer provided you have their ID and password. After entering the correct ID & password, the remote connection gets established. 
+
+![](images/Team_viewer.png)
 
 # How secure is TeamViewer?
 TeamViewer software is very safe and does not pose any danger to your computer. Because this is quite prestigious and well-known software, the security is quite high. All TeamViewer versions use full encryption based on 2048bit RSA private/public key exchange and 256 Bit AES session encoding. This uses the same security level as https/SSL and is considered completely safe by today's standards. 
