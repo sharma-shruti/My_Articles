@@ -14,7 +14,7 @@ root@bond:~/projects#
 ## Does the hash of a file change if the filename changes?
 
 No, SHA1 of the file remains unchanged (as shown below)
-
+```
 root@bond:~/projects/My_Articles# echo this is test file > test.txt
 root@bond:~/projects/My_Articles# ls
 README.md  articles  images  test.txt
