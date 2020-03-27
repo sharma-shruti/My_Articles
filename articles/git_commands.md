@@ -5,15 +5,16 @@ At its core, git is like a key value store.
 2.	The Key = Hash of the Data also called as SHA1. SHA1 is nothing but a 40-digit hexadecimal number for given a piece of data.
 3.	GIT store its data in .git directory. And the blobs are stored in .git/objects folder.
 
+```
 root@bond:~/projects# echo 'Hello, World!' | git hash-object --stdin 
 8ab686eafeb1f44702738c8b0f24f2567c36da6d
 root@bond:~/projects#
- 
+ ```
 
 ## Does the hash of a file change if the filename changes?
 
 No, SHA1 of the file remains unchanged (as shown below)
-```
+
 root@bond:~/projects/My_Articles# echo this is test file > test.txt
 root@bond:~/projects/My_Articles# ls
 README.md  articles  images  test.txt
