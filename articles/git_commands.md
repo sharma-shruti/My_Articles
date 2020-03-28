@@ -94,5 +94,33 @@ root@bond:~/projects/My_Articles#
 2.	git moves the HEAD pointer to that commit 
 3.	as soon as you checkout a different branch or commit, the value of HEAD will point to the new SHA 
 4.	There is no reference pointing to the commits you made in a detached state.
+```
+root@bond:~/projects/My_Articles# git tag my_first_tag
+root@bond:~/projects/My_Articles# git show-ref --tags
+2c899342c3c1e6822b8d861151761907e5d3bef5 refs/tags/my_first_tag
+root@bond:~/projects/My_Articles# git tag --points-at 2c899
+my_first_tag
+root@bond:~/projects/My_Articles# git log --oneline
+2c89934 (HEAD -> develop, tag: my_first_tag, origin/develop, origin/HEAD) Add new hello world file
+4dc0fd9 this is my test file
+01ebee7 Installed PWSH 7 on ubuntu 18.04
+e849c0d (origin/master, master) Created .gitignore file
+91ffb99 Created an articles folder and moved all .md file in to this folder.
+4461ba4 Auto stash before rebase of "origin/develop"
+bf2613c Created a document on github best practices
+55d1043 Added some new images
+root@bond:~/projects/My_Articles# git checkout 2c89934
+Note: checking out '2c89934'.
 
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
 
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 2c89934 Add new hello world file
+root@bond:~/projects/My_Articles#
+```
