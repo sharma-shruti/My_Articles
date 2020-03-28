@@ -124,3 +124,39 @@ do so (now or later) by using -b with the checkout command again. Example:
 HEAD is now at 2c89934 Add new hello world file
 root@bond:~/projects/My_Articles#
 ```
+## Create a Dangling Commit
+Our previous commit - 2c89934 in this case - was made in a detached HEAD state, it doesn't have any references pointing to it. It's not part of a branch, and has no tags. This is called a Dangling Commit. You'll see this warning if you try to switch branches as below.
+
+```
+root@bond:~/projects/My_Articles# cat .git/HEAD
+2c899342c3c1e6822b8d861151761907e5d3bef5
+root@bond:~/projects/My_Articles# echo "This is a test file" > dangle.txt
+root@bond:~/projects/My_Articles# git add dangle.txt
+
+root@bond:~/projects/My_Articles# git commit -m "This is a dangling commit"
+[detached HEAD 19eb3eb] This is a dangling commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 dangle.txt
+
+root@bond:~/projects/My_Articles# git log --oneline
+19eb3eb (HEAD) This is a dangling commit
+2c89934 (tag: my_first_tag, origin/develop, origin/HEAD, develop) Add new hello world file
+4dc0fd9 this is my test file
+01ebee7 Installed PWSH 7 on ubuntu 18.04
+e849c0d (origin/master, master) Created .gitignore file
+
+root@bond:~/projects/My_Articles# git checkout develop 
+Warning: you are leaving 1 commit behind, not connected to
+any of your branches:
+
+  19eb3eb This is a dangling commit
+
+If you want to keep it by creating a new branch, this may be a good time
+to do so with:
+
+ git branch <new-branch-name> 19eb3eb
+
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+root@bond:~/projects/My_Articles#
+```
