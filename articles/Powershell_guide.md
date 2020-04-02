@@ -114,3 +114,49 @@ PS /root/projects/perl_one_liners> Get-Content ./names.txt | foreach { Write-Hos
 4 Allen James New-Opportunity
 PS /root/projects/perl_one_liners>
 ```
+***
+```powershell
+PS /root/projects/perl_one_liners> Get-Date
+
+Thursday, 02 April 2020 09:44:37
+
+```
+## How to calculate the total value of third field in all the records?
+```powershell
+PS /root/projects/perl_one_liners> Get-Content names.txt | %{ [int]$total+=$_.Split(',')[2]; } ; Write-Host "Total: $total" 
+Total: 230831
+PS /root/projects/perl_one_liners>
+```
+## How to get number of fields in each record
+```powershell
+PS /root/projects/perl_one_liners> Get-Content ./names.txt | %{ $a=$_.Split(','); Write-Host "Num of field" $a[0]"="$a.length; }
+Num of field 1 = 8
+Num of field 2 = 8
+Num of field 3 = 8
+Num of field 4 = 8
+PS /root/projects/perl_one_liners>
+```
+## Find and replace command
+1) **Using Get-Content to read the file and returned the contents to the console, then use replace command to modify the file content (as shown below).**
+```powershell
+PS /root/projects/perl_one_liners> cat ./names.txt
+1,Tony Passaquale,7920,20090222 21:59:00,800,4.78,3824,Follow-up
+2,Nigel Shan Shanford,30316,20090405 16:34:00,400,9.99,3996,New-Opportunity
+3,Selma Cooper,97455,20090405 16:31:00,1000,9.99,9990,Pre-Approach
+4,Allen James,95140,20090405 16:31:00,1000,9.99,9990,New-Opportunity
+PS /root/projects/perl_one_liners> ((Get-Content ./names.txt) -replace 'Selma','Sheldon')
+1,Tony Passaquale,7920,20090222 21:59:00,800,4.78,3824,Follow-up
+2,Nigel Shan Shanford,30316,20090405 16:34:00,400,9.99,3996,New-Opportunity
+3,Sheldon Cooper,97455,20090405 16:31:00,1000,9.99,9990,Pre-Approach
+4,Allen James,95140,20090405 16:31:00,1000,9.99,9990,New-Opportunity
+```
+2) **Now that we have the code to find and replace the string we're after, it's now time to modify the file itself. We can do that by using Set-Content.**
+```powershell
+PS /root/projects/perl_one_liners> ((Get-Content ./names.txt) -replace 'Sheldon','Selma') | Set-Content ./names.txt
+PS /root/projects/perl_one_liners> cat ./names.txt
+1,Tony Passaquale,7920,20090222 21:59:00,800,4.78,3824,Follow-up
+2,Nigel Shan Shanford,30316,20090405 16:34:00,400,9.99,3996,New-Opportunity
+3,Selma Cooper,97455,20090405 16:31:00,1000,9.99,9990,Pre-Approach
+4,Allen James,95140,20090405 16:31:00,1000,9.99,9990,New-Opportunity
+PS /root/projects/perl_one_liners>
+```
