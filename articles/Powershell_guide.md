@@ -160,3 +160,61 @@ PS /root/projects/perl_one_liners> cat ./names.txt
 4,Allen James,95140,20090405 16:31:00,1000,9.99,9990,New-Opportunity
 PS /root/projects/perl_one_liners>
 ```
+
+***
+```powershell
+PS /root/projects/perl_one_liners> Get-Date
+
+Saturday, 04 April 2020 10:32:44
+
+PS /root/projects/perl_one_liners> (Get-Date).Day
+Day        DayOfWeek  DayOfYear  
+PS /root/projects/perl_one_liners> (Get-Date).DayOfWeek
+Saturday
+PS /root/projects/perl_one_liners> (Get-Date).Day      
+4
+PS /root/projects/perl_one_liners> Get-ChildItem              
+
+
+    Directory: /root/projects/perl_one_liners
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-----          04/04/2020    10:28             90 hello-world.ps1
+-----          04/02/2020    09:36            277 names.txt
+-----          03/31/2020    06:12           1430 test.txt
+-----          03/31/2020    06:25           1452 test2.txt
+
+PS /root/projects/perl_one_liners> Get-ChildItem | Format-    
+Format-Custom  Format-Hex     Format-List    Format-Table   Format-Wide    
+PS /root/projects/perl_one_liners> Get-ChildItem | Format-Table
+
+
+    Directory: /root/projects/perl_one_liners
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-----          04/04/2020    10:28             90 hello-world.ps1
+-----          04/02/2020    09:36            277 names.txt
+-----          03/31/2020    06:12           1430 test.txt
+-----          03/31/2020    06:25           1452 test2.txt
+
+PS /root/projects/perl_one_liners> Get-ChildItem | Format-Wide 
+
+
+    Directory: /root/projects/perl_one_liners
+
+hello-world.ps1                                                                   names.txt
+test.txt                                                                          test2.txt
+
+PS /root/projects/perl_one_liners> cat ./hello-world.ps1
+write-Host "Hello World"
+$fn = $args[0]
+$ln = $args[1]
+
+Write-Host "Good morning $fn $ln"
+PS /root/projects/perl_one_liners> ./hello-world.ps1 Shruti Sharma
+Hello World
+Good morning Shruti Sharma
+PS /root/projects/perl_one_liners>
+```
