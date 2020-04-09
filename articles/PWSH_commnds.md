@@ -1,5 +1,8 @@
+# Learn Powershell scripting 
+
 
 ```powershell
+## Today's Date
 PS /root/projects/perl_one_liners> Get-Date                 
 
 Wednesday, 08 April 2020 10:28:17
@@ -80,3 +83,69 @@ Variable second is  = 40
  Total = 
 PS /root/projects/perl_one_liners>
 ```
+# Processing the CSV via command line 
+```powershell
+## Today's Date
+PS /root/projects/perl_one_liners> Get-Date                                                                                                    
+
+Thursday, 09 April 2020 11:02:41
+
+## Read .csv file content
+PS /root/projects/perl_one_liners> Get-Content ./data.cvs                                                                                      
+Alex,3,M,6897907
+Peter,56,M,6079227
+Rita,38,F,9689787
+Hema,20,F,7859766
+John,67,M,6898078
+
+## The Import-Csv cmdlet creates table-like custom objects from the items in CSV files.
+
+PS /root/projects/perl_one_liners> Import-Csv ./data.cvs  -Delimiter "," -Header "Name", "Age", "Gender", "Phone"                              
+
+Name  Age Gender Phone
+----  --- ------ -----
+Alex  3   M      6897907
+Peter 56  M      6079227
+Rita  38  F      9689787
+Hema  20  F      7859766
+John  67  M      6898078
+
+## Select a column 
+
+PS /root/projects/perl_one_liners> Import-Csv ./data.cvs  -Delimiter "," -Header "Name", "Age", "Gender", "Phone" |select NAme                 
+
+Name
+----
+Alex
+Peter
+Rita
+Hema
+John
+
+PS /root/projects/perl_one_liners> Import-Csv ./data.cvs  -Delimiter "," -Header "Name", "Age", "Gender", "Phone" |select Age                  
+
+Age
+---
+3
+56
+38
+20
+67
+
+## Save the output of the command to a file
+PS /root/projects/perl_one_liners> Import-Csv ./data.cvs  -Delimiter "," -Header "Name", "Age", "Gender", "Phone" |select NAme > ./New_data.csv
+
+
+PS /root/projects/perl_one_liners> Get-Content ./New_data.csv
+
+Name
+----
+Alex
+Peter
+Rita
+Hema
+John
+
+PS /root/projects/perl_one_liners>
+```
+
