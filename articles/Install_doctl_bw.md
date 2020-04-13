@@ -63,6 +63,24 @@ Ashwarys-MBP:~ ashwarybhatt$ doctl compute droplet list
 ID           Name    Public IPv4      Private IPv4    Public IPv6    Memory    VCPUs    Disk    Region    Image                       Status    Tags    Features    Volumes
 185638308    bond    167.71.212.85                                   1024      1        25      sgp1      Ubuntu 18.04.3 (LTS) x64    active
 Ashwarys-MBP:~ ashwarybhatt$
+Ashwarys-MBP:~ ashwarybhatt$ doctl compute droplet create test --region sgp1 --image ubuntu-18-04-x64 --size 1gb
+ID           Name    Public IPv4    Private IPv4    Public IPv6    Memory    VCPUs    Disk    Region    Image                       Status    Tags    Features    Volumes
+188197645    test                                                  1024      1        30      sgp1      Ubuntu 18.04.3 (LTS) x64    new
+Ashwarys-MBP:~ ashwarybhatt$
+
+Ashwarys-MBP:~ ashwarybhatt$ doctl compute droplet list
+ID           Name    Public IPv4        Private IPv4    Public IPv6    Memory    VCPUs    Disk    Region    Image                       Status    Tags    Features    Volumes
+185638308    bond    167.71.212.85                                     1024      1        25      sgp1      Ubuntu 18.04.3 (LTS) x64    active
+188197645    test    178.128.107.182                                   1024      1        30      sgp1      Ubuntu 18.04.3 (LTS) x64    active
+Ashwarys-MBP:~ ashwarybhatt$
+
+Ashwarys-MBP:~ ashwarybhatt$ doctl compute droplet delete test
+Warning: Are you sure you want to Delete 1 droplet(s)? (y/N) ? y
+Ashwarys-MBP:~ ashwarybhatt$ 
+Ashwarys-MBP:~ ashwarybhatt$ doctl compute droplet list
+ID           Name    Public IPv4      Private IPv4    Public IPv6    Memory    VCPUs    Disk    Region    Image                       Status    Tags    Features    Volumes
+185638308    bond    167.71.212.85                                   1024      1        25      sgp1      Ubuntu 18.04.3 (LTS) x64    active
+Ashwarys-MBP:~ ashwarybhatt$
 
 ```
 
@@ -73,8 +91,12 @@ Ashwarys-MBP:~ ashwarybhatt$
 ```bash
 
 Ashwarys-MBP:~ ashwarybhatt$ bw --version
-1.9.1
-Ashwarys-MBP:~ ashwarybhatt$
+1.9.1 
+Ashwarys-MBP:~ ashwarybhatt$ bw login
+? Email address: shruti26.inbox@gmail.com
+? Master password: [hidden]
+You are logged in!
+
 
 ## Bitwarden Commands
 
@@ -108,4 +130,14 @@ Ashwarys-MBP:~ ashwarybhatt$ bw get item teamviewer
 ? Master password: [hidden]
 {"object":"item","id":"56b4d3f3-46bf-4771-a3f6-ab7b00bc69fb","organizationId":null,"folderId":null,"type":1,"name":"login.teamviewer.com","notes":null,"favorite":false,"login":{"uris":[{"match":null,"uri":"https://login.teamviewer.com/LogOn"}],"username":"shruti26.inbox@gmail.com","password":"****","totp":null,"passwordRevisionDate":null},"collectionIds":[],"revisionDate":"2020-03-11T11:25:59.660Z"}
 Ashwarys-MBP:~ ashwarybhatt$
+
+Ashwarys-MBP:~ ashwarybhatt$ bw sync --last
+? Master password: [hidden]
+2020-04-11T15:36:33.642Z
+
+Ashwarys-MBP:~ ashwarybhatt$ bw sync
+? Master password: [hidden]
+Syncing complete.
+Ashwarys-MBP:~
+
 ```
