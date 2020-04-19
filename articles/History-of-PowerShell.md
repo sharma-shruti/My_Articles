@@ -1,4 +1,4 @@
-![logo](images/pwsh_logo.png)
+![](/images/pwsh_logo.png)
 
 # History of Powershell
 
