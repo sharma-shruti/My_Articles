@@ -93,3 +93,20 @@ Saturday, 25 April 2020 13:53:53
 
 PS /root> 
 ```
+3. It is always a best practice, to use a native Windows PowerShell cmdlet when it exists, unless there is compelling reason for not doing so.
+
+One such example is using a static method within a .NET class. To determine the power of a number we make use of System.Math class and use the method Pow
+```powershell
+PS /root> [System.Math]::Pow(4,3)
+64
+PS /root> [system.Math]::
+E                 Atan              Ceiling           Exp               Log2              Round             Tanh              
+PI                Atan2             Clamp             Floor             Max               ScaleB            Truncate          
+Abs               Atanh             CopySign          FusedMultiplyAdd  MaxMagnitude      Sign              
+Acos              BigMul            Cos               IEEERemainder     Min               Sin               
+Acosh             BitDecrement      Cosh              ILogB             MinMagnitude      Sinh              
+Asin              BitIncrement      DivRem            Log               Pow               Sqrt              
+Asinh             Cbrt              Equals            Log10             ReferenceEquals   Tan               
+PS /root>
+```
+In this scenario, we are calling .net framework static method of a class to do something that we couldn't do in PowerShell natively. Although, we could write a function in powershell, that uses this approach.
